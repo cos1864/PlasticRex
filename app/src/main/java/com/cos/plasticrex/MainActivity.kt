@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.cos.plasticrex.ui.AddLoanScreen
 import com.cos.plasticrex.ui.CheckLoanScreen
 import com.cos.plasticrex.ui.HomeScreen
 import com.cos.plasticrex.ui.SettingsScreen
@@ -23,13 +24,18 @@ class MainActivity : ComponentActivity() {
                     "home" -> HomeScreen(
                         viewModel = viewModel,
                         onNavigateToSettings = { currentScreen = "settings" },
-                        onNavigateToCheckLoan = { currentScreen = "check" }
+                        onNavigateToCheckLoan = { currentScreen = "check" },
+                        onNavigateToAddLoan = { currentScreen = "add" }
                     )
                     "settings" -> SettingsScreen(
                         viewModel = viewModel,
                         onBack = { currentScreen = "home" }
                     )
                     "check" -> CheckLoanScreen(
+                        viewModel = viewModel,
+                        onBack = { currentScreen = "home" }
+                    )
+                    "add" -> AddLoanScreen(
                         viewModel = viewModel,
                         onBack = { currentScreen = "home" }
                     )
